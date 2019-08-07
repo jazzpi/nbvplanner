@@ -97,7 +97,7 @@ nbvInspection::RrtTree::~RrtTree()
 }
 
 void nbvInspection::RrtTree::setStateFromPoseMsg(
-    const geometry_msgs::PoseWithCovarianceStamped& pose)
+    const geometry_msgs::PoseStamped& pose)
 {
   // Get latest transform to the planning frame and transform the pose
   static tf::TransformListener listener;
@@ -110,7 +110,7 @@ void nbvInspection::RrtTree::setStateFromPoseMsg(
     return;
   }
   tf::Pose poseTF;
-  tf::poseMsgToTF(pose.pose.pose, poseTF);
+  tf::poseMsgToTF(pose.pose, poseTF);
   tf::Vector3 position = poseTF.getOrigin();
   position = transform * position;
   tf::Quaternion quat = poseTF.getRotation();
@@ -253,7 +253,7 @@ void nbvInspection::RrtTree::setStateFromOdometryMsg(
 }
 
 void nbvInspection::RrtTree::setPeerStateFromPoseMsg(
-    const geometry_msgs::PoseWithCovarianceStamped& pose, int n_peer)
+    const geometry_msgs::PoseStamped& pose, int n_peer)
 {
   // Get latest transform to the planning frame and transform the pose
   static tf::TransformListener listener;
@@ -266,7 +266,7 @@ void nbvInspection::RrtTree::setPeerStateFromPoseMsg(
     return;
   }
   tf::Pose poseTF;
-  tf::poseMsgToTF(pose.pose.pose, poseTF);
+  tf::poseMsgToTF(pose.pose, poseTF);
   geometry_msgs::Pose poseTransformed;
   tf::poseTFToMsg(transform * poseTF, poseTransformed);
   // Update the inspected parts of the mesh using the current position

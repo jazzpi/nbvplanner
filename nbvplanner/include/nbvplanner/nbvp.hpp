@@ -140,7 +140,7 @@ nbvInspection::nbvPlanner<stateVec>::~nbvPlanner()
 
 template<typename stateVec>
 void nbvInspection::nbvPlanner<stateVec>::posCallback(
-    const geometry_msgs::PoseWithCovarianceStamped& pose)
+    const geometry_msgs::PoseStamped& pose)
 {
   tree_->setStateFromPoseMsg(pose);
   // Planner is now ready to plan.

@@ -21,7 +21,7 @@
 #include <fstream>
 #include <eigen3/Eigen/Dense>
 #include <ros/ros.h>
-#include <geometry_msgs/PoseWithCovarianceStamped.h>
+#include <geometry_msgs/PoseStamped.h>
 #include <nav_msgs/Odometry.h>
 #include <octomap_world/octomap_manager.h>
 #include <multiagent_collision_check/Segment.h>
@@ -67,7 +67,7 @@ class nbvPlanner
   nbvPlanner(const ros::NodeHandle& nh, const ros::NodeHandle& nh_private);
   ~nbvPlanner();
   bool setParams();
-  void posCallback(const geometry_msgs::PoseWithCovarianceStamped& pose);
+  void posCallback(const geometry_msgs::PoseStamped& pose);
   void odomCallback(const nav_msgs::Odometry& pose);
   bool plannerCallback(nbvplanner::nbvp_srv::Request& req, nbvplanner::nbvp_srv::Response& res);
   void insertPointcloudWithTf(const sensor_msgs::PointCloud2::ConstPtr& pointcloud);

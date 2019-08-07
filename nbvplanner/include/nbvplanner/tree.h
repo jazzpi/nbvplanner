@@ -19,7 +19,7 @@
 
 #include <vector>
 #include <eigen3/Eigen/Dense>
-#include <geometry_msgs/PoseWithCovarianceStamped.h>
+#include <geometry_msgs/PoseStamped.h>
 #include <nav_msgs/Odometry.h>
 #include <octomap_world/octomap_manager.h>
 #include <multiagent_collision_check/Segment.h>
@@ -104,12 +104,12 @@ class TreeBase
   TreeBase();
   TreeBase(mesh::StlMesh * mesh, volumetric_mapping::OctomapManager * manager);
   ~TreeBase();
-  virtual void setStateFromPoseMsg(const geometry_msgs::PoseWithCovarianceStamped& pose) = 0;
+  virtual void setStateFromPoseMsg(const geometry_msgs::PoseStamped& pose) = 0;
   virtual void setStateFromOdometryMsg(const nav_msgs::Odometry& pose) = 0;
-  virtual void setPeerStateFromPoseMsg(const geometry_msgs::PoseWithCovarianceStamped& pose, int n_peer) = 0;
-  void setPeerStateFromPoseMsg1(const geometry_msgs::PoseWithCovarianceStamped& pose);
-  void setPeerStateFromPoseMsg2(const geometry_msgs::PoseWithCovarianceStamped& pose);
-  void setPeerStateFromPoseMsg3(const geometry_msgs::PoseWithCovarianceStamped& pose);
+  virtual void setPeerStateFromPoseMsg(const geometry_msgs::PoseStamped& pose, int n_peer) = 0;
+  void setPeerStateFromPoseMsg1(const geometry_msgs::PoseStamped& pose);
+  void setPeerStateFromPoseMsg2(const geometry_msgs::PoseStamped& pose);
+  void setPeerStateFromPoseMsg3(const geometry_msgs::PoseStamped& pose);
   void evade(const multiagent_collision_check::Segment& segmentMsg);
   virtual void iterate(int iterations) = 0;
   virtual void initialize() = 0;
