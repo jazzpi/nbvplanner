@@ -4,6 +4,7 @@ project(nbvplanner)
 add_definitions(-std=c++11)
 
 find_package(catkin REQUIRED COMPONENTS
+  message_generation
   roscpp
   geometry_msgs
   visualization_msgs
