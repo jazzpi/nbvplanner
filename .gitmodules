@@ -1,6 +1,3 @@
-[submodule "rotors"]
-	path = rotors
-	url = https://github.com/ethz-asl/rotors
 [submodule "volumetric_mapping"]
 	path = volumetric_mapping
 	url = https://github.com/ethz-asl/volumetric_mapping
@@ -10,9 +7,6 @@
 [submodule "minkindr"]
 	path = minkindr
 	url = https://github.com/ethz-asl/minkindr
-[submodule "mav_comm"]
-	path = mav_comm
-	url = https://github.com/ethz-asl/mav_comm
 [submodule "glog_catkin"]
 	path = glog_catkin
 	url = https://github.com/ethz-asl/glog_catkin
