@@ -731,7 +731,11 @@ std::vector<geometry_msgs::Pose> nbvInspection::RrtTree::samplePath(StateVec sta
   double disc = std::min(params_.dt_ * params_.v_max_ / distance.norm(),
                          params_.dt_ * params_.dyaw_max_ / abs(yaw_direction));
   assert(disc > 0.0);
-  for (double it = 0.0; it <= 1.0; it += disc) {
+  // FIXME: DIRTY DIRTY HACK
+  // This is supposed to sample the path into a trajectory depending on v_max and dyaw_max.
+  // We don't want trajectories, we simply want the end node
+  // for (double it = 0.0; it <= 1.0; it += disc) {
+  for (double it = 1.0; it <= 1.0; it += disc) {
     tf::Vector3 origin((1.0 - it) * start[0] + it * end[0], (1.0 - it) * start[1] + it * end[1],
                        (1.0 - it) * start[2] + it * end[2]);
     double yaw = start[3] + yaw_direction * it;
