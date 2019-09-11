@@ -157,8 +157,8 @@ void nbvInspection::nbvPlanner<stateVec>::odomCallback(
 }
 
 template<typename stateVec>
-bool nbvInspection::nbvPlanner<stateVec>::plannerCallback(nbvplanner::nbvp_srv::Request& req,
-                                                          nbvplanner::nbvp_srv::Response& res)
+bool nbvInspection::nbvPlanner<stateVec>::plannerCallback(tb_simulation::PlanPath::Request& req,
+                                                          tb_simulation::PlanPath::Response& res)
 {
   ros::Time computationTime = ros::Time::now();
   // Check that planner is ready to compute path.
@@ -182,6 +182,8 @@ bool nbvInspection::nbvPlanner<stateVec>::plannerCallback(nbvplanner::nbvp_srv::
   res.path.clear();
 
   // Clear old tree and reinitialize.
+  const auto& p = req.target.position;
+  tree_->setTarget({p.x, p.y, p.z});
   tree_->clear();
   tree_->initialize();
   vector_t path;

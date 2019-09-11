@@ -595,7 +595,19 @@ double nbvInspection::RrtTree::gain(StateVec state)
     transform.setRotation(quaternion);
     gain += params_.igArea_ * mesh_->computeInspectableArea(transform);
   }
+  // Scale with distance to target
+  gain /= targetDist(state);
   return gain;
+}
+
+double nbvInspection::RrtTree::targetDist(StateVec state) {
+  if (target_) {
+    Eigen::Vector3d pos = {state[0], state[1], state[2]};
+
+    return (*target_ - pos).norm();
+  } else {
+    return 1;
+  }
 }
 
 std::vector<geometry_msgs::Pose> nbvInspection::RrtTree::getPathBackToPrevious(

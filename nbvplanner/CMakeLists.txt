@@ -13,6 +13,7 @@ find_package(catkin REQUIRED COMPONENTS
   tf
   kdtree
   multiagent_collision_check
+  tb_simulation
 )
 find_package(cmake_modules REQUIRED)
 find_package(Eigen REQUIRED)

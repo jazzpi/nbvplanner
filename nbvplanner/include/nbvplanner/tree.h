@@ -100,6 +100,7 @@ class TreeBase
   stateVec exact_root_;
   std::vector<std::vector<Eigen::Vector3d>*> segments_;
   std::vector<std::string> agentNames_;
+  boost::optional<Eigen::Vector3d> target_;
  public:
   TreeBase();
   TreeBase(mesh::StlMesh * mesh, volumetric_mapping::OctomapManager * manager);
@@ -121,6 +122,7 @@ class TreeBase
   int getCounter();
   bool gainFound();
   void insertPointcloudWithTf(const sensor_msgs::PointCloud2::ConstPtr& pointcloud);
+  void setTarget(Eigen::Vector3d target);
 };
 }
 

@@ -127,4 +127,9 @@ void nbvInspection::TreeBase<stateVec>::evade(const multiagent_collision_check::
   }
 }
 
+template<typename stateVec>
+void nbvInspection::TreeBase<stateVec>::setTarget(Eigen::Vector3d target) {
+  target_ = target;
+}
+
 #endif

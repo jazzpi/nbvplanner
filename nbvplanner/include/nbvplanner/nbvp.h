@@ -29,6 +29,7 @@
 #include <nbvplanner/mesh_structure.h>
 #include <nbvplanner/tree.hpp>
 #include <nbvplanner/rrt.h>
+#include <tb_simulation/PlanPath.h>
 
 #define SQ(x) ((x)*(x))
 #define SQRT2 0.70711
@@ -69,7 +70,7 @@ class nbvPlanner
   bool setParams();
   void posCallback(const geometry_msgs::PoseStamped& pose);
   void odomCallback(const nav_msgs::Odometry& pose);
-  bool plannerCallback(nbvplanner::nbvp_srv::Request& req, nbvplanner::nbvp_srv::Response& res);
+  bool plannerCallback(tb_simulation::PlanPath::Request& req, tb_simulation::PlanPath::Response& res);
   void insertPointcloudWithTf(const sensor_msgs::PointCloud2::ConstPtr& pointcloud);
   void insertPointcloudWithTfCamUp(const sensor_msgs::PointCloud2::ConstPtr& pointcloud);
   void insertPointcloudWithTfCamDown(const sensor_msgs::PointCloud2::ConstPtr& pointcloud);
