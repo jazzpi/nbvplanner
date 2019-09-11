@@ -664,7 +664,7 @@ void nbvInspection::RrtTree::publishNode(Node<StateVec> * node)
   p.pose.orientation.y = quat.y();
   p.pose.orientation.z = quat.z();
   p.pose.orientation.w = quat.w();
-  p.scale.x = std::max(node->gain_ / 20.0, 0.05);
+  p.scale.x = std::max(node->gain_, 0.05);
   p.scale.y = 0.1;
   p.scale.z = 0.1;
   p.color.r = 167.0 / 255.0;
