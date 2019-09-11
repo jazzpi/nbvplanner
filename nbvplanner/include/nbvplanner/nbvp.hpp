@@ -203,6 +203,7 @@ bool nbvInspection::nbvPlanner<stateVec>::plannerCallback(tb_simulation::PlanPat
     tree_->iterate(1);
     loopCount++;
   }
+  ROS_INFO_THROTTLE(1, "Best gain found is %f", tree_->getGain());
   // Extract the best edge.
   res.path = tree_->getBestEdge(req.header.frame_id);
 

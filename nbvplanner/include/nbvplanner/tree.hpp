@@ -103,6 +103,12 @@ bool nbvInspection::TreeBase<stateVec>::gainFound()
 }
 
 template<typename stateVec>
+double nbvInspection::TreeBase<stateVec>::getGain()
+{
+  return bestGain_;
+}
+
+template<typename stateVec>
 void nbvInspection::TreeBase<stateVec>::insertPointcloudWithTf(
     const sensor_msgs::PointCloud2::ConstPtr& pointcloud)
 {

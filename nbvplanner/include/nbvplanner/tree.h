@@ -121,6 +121,7 @@ class TreeBase
   void setParams(Params params);
   int getCounter();
   bool gainFound();
+  double getGain();
   void insertPointcloudWithTf(const sensor_msgs::PointCloud2::ConstPtr& pointcloud);
   void setTarget(Eigen::Vector3d target);
 };
